@@ -1,0 +1,1332 @@
+Estrutura condicional - Estrutura Condicionais 2
+
+if - condicional simples
+if - else - condicional composta
+if - else 	if - condional aninhada
+
+if (condição){
+
+}else { if (condição)
+
+}
+------------------------------EXEMPLOS---------------------------------------------------------
+algoritmo "Aluno"
+
+var
+	N1, N2, M: Real
+inicio
+	Escreva("Primeira Nota: ")
+	Leia(N1)
+	Escreva("Segunda Nota: ")
+	Leia(N2)
+	M <- (N1 + N2) / 2
+	EscrevaL("A media do aluno foi: ", M:4:2)
+	Se (M >= 7) entao
+		EscrevaL("Aluno APROVADO")
+	senao
+		se (M >=5) e (M < 7) entao
+			EscrevaL("Aluno em RECUPERAÇÃO")
+		senao
+			EscrevaL ("Aluno REPROVADO")
+		Fimse
+	Fimse
+fimalgoritmo
+
+----------------------------------------------------------------------------------------------------
+
+ESTRUTURA DE REPETIÇÃO:
+Ler 10 numeros e soma-los
+
+algoritmo "somadorNumerico"
+var
+	cont, N, S, maior, menor: Inteiro
+inicio
+	cont <- 1
+	S <- 0
+	Enquanto (cont <= 10) faca
+		Escreva ("Digite o", cont, " o. valor: ")
+		Leia (N)
+		Se (N > maior) entao
+			maior <- N
+		senao
+			se (N < menor) entao
+				menor <- N
+			FimSe
+		FimSe
+		S <- S + N
+		cont <- cont + 1
+	FimEnquanto
+	EscrevaL ("A soma de todos os valores foi ", S)
+	EscrevaL ("O maior valor digitado foi ", maior)
+	EscrevaL ("O menor valor digitado foi ", menor)
+fimalgoritmo
+
+----------------------------------------------------------
+
+lgoritmo "escolaAnaliseNotas"
+var
+	qntAluno, cont, notaAluno, maior: Inteiro
+	nomeAluno, alunoMaiorNota: caractere
+inicio
+	cont <- 1
+	qntAluno <- 0
+	notaAluno <- 0
+	Escreva ("Quantos alunos a turma tem? ")
+	Leia(qntAluno)
+	
+	Enquanto (cont <= qntAluno) faca
+		Escreva ("ALUNO", cont)
+		Escreva ("Nome do Aluno: ")
+		Leia (nomeAluno)
+		Escreva ("Nota de ", nomeAluno, ":")
+		Leia (notaAluno)
+		Se (notaAluno > maior) entao
+			maior <- notaAluno
+			alunoMaiorNota <- nomeAluno
+		FimSe
+		cont <- cont + 1
+	FimEnquanto
+	EscrevaL ("O melhor aproveitamento foi de", alunoMaiorNota," com a nota ", maior)
+fimalgoritmo
+
+----------------------------------------------------------------------------
+ REPITA .... ATE - Será validado o teste no final
+ 
+algoritmo "somadorNumerico"
+var
+	 N, S: Inteiro
+	 resp: Caractere
+	 
+inicio
+	
+	S <- 0
+	Repita
+		Escreva ("Digite o valor: ")
+		Leia (N)
+		S <- S + N
+		Escreva ("Você quer continuar? [S/N] ")
+		Leia(resp)
+	Ate (resp = "S")
+	EscrevaL ("A soma de todos os valores foi ", S) 
+fimalgoritmo
+
+-----------------------------------------------------------------------------
+algoritmo "contaAteDez"
+var
+	cont: Inteiro
+inicio
+	cont <- 1
+	Repita
+		EscrevaL(cont)
+		cont <- cont + 1
+	Ate (cont > 10)
+fimalgoritmo
+
+algoritmo "Fatorial"
+var
+	C, N, F: Inteiro
+inicio
+	Repita
+		Escreva("Digite um numero:")
+		Leia(N)
+		C <- N
+		F <- 1
+		Repita
+			F <- F * C
+			C <- C - 1
+		Ate (C < 1)
+		Escreva (" O valor do fatorial de ", N, " e igual a ", F)
+		Escreva ("Quer continuar? [S/N]")
+		Leia(R)
+		LimpaTela
+	Ate (R = "N")
+fimalgoritmo
+
+-------------------------------------------------------------
+
+algoritmo "superContador"
+
+var
+	Menu, C, N: Inteiro
+
+inicio
+	C <- 1
+	N <- 10
+	Repita
+		Escreval ("=================")
+		Escreval ("|     MENU      |")
+		Escreval ("=================")
+		Escreval ("| [1] De 1 a 10 |")
+		Escreval ("| [2] De 10 a 1 |")
+		Escreval ("| [3] Sair      |")
+		Escreval ("=================")
+		Leia(Menu)
+		Se (Menu = 1) entao
+			Repita
+			Escreval(C)
+			C <- C + 1
+			Ate (C > N)
+		FimSe
+		Se (Menu = 2) entao
+			Repita
+			Escreval(N)
+			N <- N - 1
+			Ate (N < C)
+		FimSe
+		Se (Menu = 3) entao
+			Repita
+			Escreva(N)
+			N <- N - 1
+			Ate (N < C)
+		FimSe
+	Ate (Menu = 3)
+fimalgoritmo
+
+------------------------------------------------
+algoritmo "escolhendoPessoas" = HOMENS, MAIS DE 18 CASTANHO - MULHERES ENTRE 25 E 30 LOIRAS
+algoritmo "escolhendoPessoas"
+
+var
+	S, R: Caractere
+	H, M, I, C, N: Inteiro
+inicio
+	C <- 1
+	N <- 10
+	Repita
+		EscrevaL ("==========================")
+		EscrevaL ("    SELETOR DE PESSOAS    ")
+		EscrevaL ("==========================")
+		EscrevaL ("Qual o Sexo? [M/F]")
+		Leia(S)
+		Escreva ("Qual a idade?")
+		Leia(I)
+		EscrevaL ("Qual a cor do cabelo?")
+		EscrevaL ("--------------------")
+		EscrevaL ("[1] Preto")
+		EscrevaL ("[2] Castanho")
+		EscrevaL ("[3] Loiro")
+		EscrevaL ("[4] Ruivo")
+		Leia(C)
+		Se (S = "M") e (I > 18) e (C = 2) entao
+			H <- H + 1
+		FimSe
+		Se (S = "F") e (I > 25) e (I < 30) e (C = 3) entao
+			M <- M + 1
+		FimSe
+		Escreva("Quer continuar? [S/N]")
+		Leia(R)
+		LimpaTela
+	Ate(R = "N")
+	Escreva("Total de homens com mais de 18 e cabelos castanhos", H )
+	Escreva("Total de mulheres entre 25 e 30 e cabelos loiros", M)
+fimalgoritmo
+
+
+--------------------------------------------------------------------------
+Estrutura de repetição 3 - 
+
+Estrutura PARA - Só serve para quando se sabe quantas vezes é utilizado 
+
+Para VARIAVEL <- INICIO ate FIM [passo SALTO] faca
+	Bloco
+FimPara
+
+
+
+Para C <- 1 ate 10 passo 1 faca
+	EscrevaL(C)
+FimPara
+========================================
+Exemplo prático
+
+algoritmo "contador1a10"
+var
+	C: Inteiro
+inicio
+	Para C <- 1 ate 10 passo 1 faca
+		EscrevaL(C)
+	FimPara
+fimalgoritmo
+
+========================================
+
+Algoritmo "contador1a10"
+var
+	C, N,S: Inteiro
+	
+inicio
+	Para C <- 1 ate 5 faca
+		EscrevaL("Digite um valor: ")
+		Leia(N)
+		S <- S + N
+	FimPara
+	EscrevaL("A soma dos valores e ", S)
+fimalgoritmo
+=================================================
+
+lgoritmo "contador1a10"
+var
+	C, V: Inteiro
+inicio
+	Escreva("Escreva um valor")
+	Leia(V)
+	Para C <- 0 ate V passo 2 faca
+		Escreva("C")
+	FimPara
+fimalgoritmo
+
+==============================
+
+Contador decrescente
+Algoritmo "contador1a10"
+var
+	C, V: Inteiro
+inicio
+	Escreva("Escreva um valor")
+	Leia(V)
+	Se (V % 2 = 1) entao
+		V <- V - 1
+	FimSe
+	Para C <- V ate 0 passo -2 faca
+		Escreva("C")
+	FimPara
+fimalgoritmo
+
+
+===============================
+
+Algoritmo "leitorDeValores"
+var
+	C, V, Val, Num, Impar: Inteiro
+inicio
+	num <- 0
+	impar <- 0
+	Escreva("Quantos valores quer ler:")
+	Leia(V)
+	Para C <- 1 ate V faca
+		Escreva("Digite o valor para analisar se esta entre 0 e 10")
+		Leia(Val)
+		Se (Val % 2 = 1) entao
+				impar <- impar + Val
+			FimSe
+		Se (Val >= 0) e (Val <= 10) entao
+			num = num + 1
+			Se (Val % 2 = 1) entao
+				impar <- impar + Val
+			FimSe
+				
+		FimSe
+	FimPara
+		Escreva("Tem exatamente", num," numeros entre 0 e 10")
+		Escreva("Tem exatamente", num," numeros entre 0 e 10 e desses numeros a soma dos impares sao ", impar," numeros")
+fimalgoritmo 
+
+=========================================
+Combinação de numeros  {1,1}
+		    	{1,2}
+		    	{1,3}
+		    	{2,1}
+		    	{2,2}
+		    	{2,3}
+		    	{3,1}
+		    	{3,2}
+		    	{3,3}
+
+algoritmo "combinandoNumeros"
+var 
+	C1, C2: inteiro
+Inicio
+	Para C1 <- 1 ate 3 faca
+		Para C2 < 1 ate 3 faca
+		Escreva(C1, C2)
+	FimPara
+fimalgoritmo 
+
+================================================
+
+algoritmo "fibonacci"
+
+var
+	I, P, Q, C1, R: Inteiro
+inicio
+	I <- 0
+	P <- 1
+
+   Escreva("Quantas vezes para sequencia de fibonnaci? ")
+   Leia(Q)
+   Escreva(I)
+   Escreva(P)
+   Para C1 <- 3 ate Q faca
+      R <- I + P
+      Escreva(R)
+      I <- P
+      P <- R
+   FimPara
+   
+fimalgoritmo
+
+=========================================================
+Exibir: Soma dos valores, media entre os valores, quantos são divisiveis por 5, quantos são nulos, soma dos pares.
+
+Algoritmo "analisadorDeValores"
+var
+	Va, C1, num, divi, nulo, somaPar: Inteiro
+	media, soma: Real
+Inicio
+	Escreva("Quantas valores para analisar: ")
+   	Leia(Va)
+   	Para C1 <- 1 ate Va faca
+   	Escreva("Digite ", C1,".o numero: ")
+   	Leia(num)
+   		soma <- soma + num
+   		Se (num % 5 = 0) entao
+   			divi <- divi + 1
+   		FimSe
+   		Se (num = 0) entao
+   			nulo <- nulo + 1
+   		FimSe
+   		Se (num % 2 = 0) entao
+   			somaPar <- somaPar + num
+   		FimSe
+   	FimPara
+   	media <- soma / Va
+   	EscrevaL("A soma entre os valores e ", soma)
+   	EscrevaL("A media entre os valores e", media)
+   	EscrevaL("Valores divisiveis por cinco: ", divi)
+   	EscrevaL("Valores nulos: ", nulo)
+   	EscrevaL("A soma dos valores pares e ", somaPar)
+fimalgoritmo
+
+=============================================================
+Procedimentos
+
+Algoritmo "detectorDePesado"
+var
+	cont: Inteiro
+	maisPesado, peso: Real
+	pessoaMaisPesada, nome: Caractere
+Procedimento Topo()
+Inicio
+   LimpaTela
+	EscrevaL ("==============================================")
+	EscrevaL ("    D E T E C T O R     D E    P E S A D O    ")
+	EscrevaL ("    Maior peso até agora ", maisPesado,"KG    ")
+	EscrevaL ("==============================================")
+FimProcedimento
+
+Inicio
+ Topo()
+	Para cont <- 1 ate 5 faca
+		EscrevaL ("Digite o nome: ")
+		Leia(nome)
+		EscrevaL ("Digite o peso em KG: ")
+		Leia(peso)
+		Se (peso > maisPesado) entao
+			maisPesado <- peso
+			pessoaMaisPesada <- nome
+		FimSe
+		Topo()
+	FimPara
+ Topo()
+	EscrevaL ("A pessoa mais pesada foi ", pessoaMaisPesada,", com ", maisPesado," quilos.")
+fimalgoritmo
+
+
+===============================================================
+
+PASSSAGEM DE PARÂMETRO
+
+TIPO 1: POR VALOR
+
+Procedimento Soma(A, B: Inteiro)
+Inicio
+	EscrevaL("Recebi o valor", A)
+	EscrevaL("Recebi o valor", B)
+	EscrevaL("A soma vale", A+B)
+fimProcedimento
+
+=============================================================
+Algoritmo "passParamSoma"
+var
+	X, Y: Inteiro
+Procedimento Soma(A,B: Inteiro)
+Inicio
+	EscrevaL("Recebi o valor", A)
+	EscrevaL("Recebi o valor", B)
+	EscrevaL("A soma vale", A+B)
+fimProcedimento
+Inicio
+		EscrevaL ("Digite o primeiro valor: ")
+		Leia(X)
+      EscrevaL ("Digite o segundo valor: ")
+		Leia(Y)
+		Soma(X, Y)
+fimalgoritmo
+
+===========================================================
+	
+	Algoritmo "verificarParouImpar"
+var
+	X: Inteiro
+Procedimento parOuImpar(V: Inteiro)
+Inicio
+	EscrevaL("Recebi o valor", V)
+   Se (V%2 = 0) entao
+      EscrevaL("O número ", V, " é par")
+   senao
+        Escreval("O número ",V," é impar")
+   fimSe
+fimProcedimento
+Inicio
+		EscrevaL ("Digite o primeiro valor: ")
+		Leia(X)
+		parOuImpar(X)
+fimalgoritmo
+
+========================================================
+
+ESCOPO: É onde a variável irá funcionar.
+Escopo LOCAL: Dentro de procedimento por exemplo
+Escopo GLOBAL: Variavel declarada fora do procedimento.
+
+========================================================
+
+OBS: Passagem de parametros por VALOR a variável global não altera o seu valor. CÓPIA, qualquer alteração ficará na cópia e real funçção não se altera
+OBS: Passagem de parâmetros por REFERÊNCIA a variável global recebe a alteração que for sugerida no procedimento. Passa o endereço da variável GLOBAL para a variavel LOCAL. 
+
+=========================================================
+Passagem de parâmetros por REFERÊNCIA
+var -> Passando parametro por referencia
+
+
+
+Algoritmo "somaParametrosReferencia"
+var
+	X,Y: Inteiro
+Procedimento Soma(var A, B: Inteiro)
+Inicio
+	A <- A + 1
+	B <- B + 2
+	EscrevaL("A soma vale", A + B)
+FimProcedimento
+Inicio
+	X <- 4
+	Y <- 8
+	Soma(X, Y) // Nessa hora está enviado o endereço de X e Y para variavel local do escopo Procedimento.
+	EscrevaL(X,Y)
+FimAlgoritmo
+
+=======================================================
+Algoritmo "somaParametrosReferencia"
+var
+	X,Y: Inteiro
+Procedimento Soma(var A, B: Inteiro)
+Inicio
+	A <- A + 1
+	B <- B + 2
+	EscrevaL("Valor de A = ", A)
+   EscrevaL("Valor de B = ", B)
+   EscrevaL("A soma vale", A + B)
+FimProcedimento
+Inicio
+	X <- 4
+	Y <- 8
+	Soma(X, Y) // Nessa hora está enviado o endereço de X e Y para variavel local do escopo Procedimento.
+	EscrevaL("Valor de X = ", X)
+	EscrevaL("Valor de Y = ", Y)
+FimAlgoritmo
+==========================================================
+algoritmo "fibonacciPorReferencia"
+
+var
+	C, T1, T2, T3, Q: Inteiro
+Procedimento proximoFibonacci(var A, B: Inteiro)
+var C: Inteiro
+inicio
+      C := A + B
+      Escreva(C)
+      A := B
+      B := C
+fimProcedimento
+inicio
+	T1 <- 0
+	T2 <- 1
+
+   Escreva("Quantas vezes para sequencia de fibonnaci? ")
+   Leia(Q)
+   Escreva(T1)
+   Escreva(T2)
+   Para C <- 3 ate Q faca
+        proximoFibonacci(T1, T2)
+   FimPara
+
+fimalgoritmo
+
+
+=========================================================
+FUNÇÕES
+
+Procedimento não retorna um valor
+Função tem valor de retorno
+
+Exemplos:
+Algoritmo "FunçãoSoma"
+Var N1, N2, RES : Inteiro
+Funcao Soma(A, B: Inteiro) : Inteiro
+var
+	S: Inteiro
+Inicio
+	S <- A + B
+	Retorne S
+FimFuncao
+Inicio
+	N1 <- 5
+	N2 <- 4
+	RES <- Soma(N1, N2)
+	EscrevaL("A soma é ", RES)
+FimAlgoritmo
+
+============================================================
+
+Algoritmo "FunçãoSoma"
+Var N1, N2, RES : Inteiro
+Funcao Soma(A, B: Inteiro) : Inteiro
+
+Inicio
+	Retorne A + B
+FimFuncao
+Inicio
+   Escreval("Digite o primeiro valor: ")
+	Leia(N1)
+	Escreval("Digite o segundo valor: ")
+	Leia(N2)
+	RES <- Soma(N1, N2)
+	EscrevaL("A soma entre", N1 ," e ", N2 ," é ", RES)
+FimAlgoritmo
+
+==========================================================
+
+ Algoritmo "semnome"
+// 
+Var
+   F,R : Inteiro
+Funcao fatorialCalc (A: Inteiro) : Inteiro
+Var
+   count, V: inteiro
+   
+Inicio
+      V <- 1
+      Para count<- 1 ate A faca
+          V <- V * count
+      FimPara
+      Retorne V
+FimFuncao
+Inicio
+   Escreval ("Digite o valor para calculo de fatorial: ")
+   Leia(F)
+   R <- fatorialCalc(F)
+   Escreval("O valor de", F,"! é ", R)
+Fimalgoritmo
+
+-----------------------------------------------------------
+
+algoritmo "fibonacciPorReferencia"
+
+var
+	C, T1, T2, T3, Q: Inteiro
+Funcao proximoFibonacci(var A, B: Inteiro): Inteiro
+var
+      C: Inteiro
+inicio
+      C := A + B
+      A := B
+      B := C
+      Retorne C
+fimFuncao
+inicio
+	T1 <- 0
+	T2 <- 1
+
+   Escreva("Quantas vezes para sequencia de fibonnaci? ")
+   Leia(Q)
+   Escreval(T1)
+   Escreval(T2)
+   Para C <- 3 ate Q faca
+        T3 <- proximoFibonacci(T1, T2)
+        Escreval(T3)
+   FimPara
+
+fimalgoritmo
+
+===============================================================
+
+Compr() - Responde quantos caractere tem no parametro
+Copia(parametroVariavelCaractere, Numero que letra que ira contar comeca por esse numero, quantas casa ira mostrar)
+Masiucs() Transforma tudo em maiusculo 
+Minusc() Transforma tudo em minusculo
+Pos() - Indica Posicao de determinada string ou letra dentro de uma string maior.
+Asc() - retorna o Numero Asc
+Carac() Passa o numero asc e ele retorna a letra
+
+EXEMPLOS:
+
+Site
+	CursoEmVideo
+	
+Compr(Site) Retorna 12
+Copia(Site, 6, 2) Retorna Em
+Maiusc(Site) Retorna CURSOEMVIDEO
+Minusc(Site) Retorna cursoemvideo
+Pos("Video", Site) Retorna 8
+Asc("C") Retorna 67
+Carac(67) Retorna C
+
+
+
+Algoritmo "funcoes"
+
+Var
+   N: Caractere
+   C: Inteiro
+Inicio
+      EscrevaL("Digite seu nome: ")
+      Leia(N)
+      EscrevaL("O seu nome tem ", Compr(N)," caracteres.")
+      EscrevaL("Seu nome em caixa alta: ",Maiusc(N))
+      EscrevaL("Seu nome em caixa baixa: ",Minusc(N))
+      EscrevaL ("A primeira letra do teu nome é ", Copia(Maiusc(N), 1, 1))
+      EscrevaL ("A última letra do teu nome é ", Copia(Maiusc(N), Compr(N), 1))
+      EscrevaL ("A letra A esta na posicao: ", Pos("A", Maiusc(N)))
+      EscrevaL ("O codigo da letra A é: ", Asc("A"))
+      EscrevaL ("A letra de código 65 é : ", Carac(65))
+      
+      Para C <- Compr(N) ate 1 passo -1 faca
+      Escreva(Copia(Maiusc(N), C,1))
+      FimPara
+Fimalgoritmo
+
+=====================================================================
+
+
+
+Variáveis simples: alocadas de acordo com a necessidade do SO.
+
+Atribuição = n1 <- 3
+
+Neste exemplo o número 3 é atribuído a variável n1.
+
+Variáveis compostas:
+
+N: vetor [1..4] de inteiro
+
+De 1 a 4 temos 2 pontos, e não é uma reticência
+
+Indicar o nome da variável e a posição. O Colchete []
+
+Variáveis compostas homogêneas = são homogêneas porque são todas do mesmo tipo..
+
+No exemplo acima todas são do tipo inteiro
+
+=================================================
+
+Exemplo de um programa:
+
+var
+
+	n1: inteiro
+	n2, n3, n4: inteiro
+	n: vetor[1..4] de inteiro
+inicio
+	n[1] <- 3
+	n[2] <- 5
+	n[3] <- 1
+	n[4] <- 0
+
+Variáveis compostas homogêneas unidimensionais = Unidimensional porque para identificar cada um dos quadrados onde estão sendo armazenados precisaria apenas de um endereço.
+==============================================================
+Exemplo:
+
+var
+	n: vetor [1..4] de inteiro
+	i: inteiro
+inicio
+	para i <- 1 ate 4 faca
+	leia(n[i])
+	fimPara
+=======================================================
+Exemplo de vetor lendo números digitados:
+
+Algoritmo “lendo números digitados”
+var
+	n: vetor [1..6] de inteiro
+	i: inteiro
+inicio
+	para i <- 1 ate 6 faca
+		Escreva(“Digite o”, i , “ o valor:)
+		leia(n[i])
+	fimPara
+	para i <-1 ate 6 faca
+		EscrevaL(“O valor digitado na posição”, i ,” foi : ”, n[i])
+	fimPara
+========================================================
+
+Algoritmo "valoresPares"
+
+var
+	i, totalPar: Inteiro
+	val: vetor[1..7] de Inteiro
+inicio
+totalPar <- 0
+	Para i <- 1 ate 7 faca
+		EscrevaL("Digite o ", i ,"o. valor:")
+		Leia(val[i])
+	fimPara
+	Para i <- 1 ate 7 faca
+		Se (val[i] % 2 = 0) então
+			totalPar <- totalPar + 1
+			Escreval("A posição dos valores pares foi: ", i)
+		fimSe
+	fimPara
+	Escreval("O total de pares foi: ", totalPar)
+fimalgoritmo
+
+=======================================================================
+algoritmo “gestaoTurma”
+var
+	n1: vetor[1..4] de Real
+	n2: vetor[1..4] de Real
+	nomeAluno: vetor[1..4] de Caractere
+	media: vetor[1..4] de Real
+	mediaTurma, somaMedia : Real
+	I, totalAcimaMedia: inteiro
+
+Inicio
+totalAcimaMedia <- 0
+	Para i <- 1 ate 4 faca
+		Escreva(“Aluno ”, i)
+		Escreva(“Digite o nome do Aluno: ”)
+		Leia(nomeAluno[i])
+		Escreva(“Digite a primeira nota: ”)
+		Leia(n1[i])
+		Escreva(“Digite a segunda nota: ”)
+		Leia(n2[i])
+		media[i] <- (n1[i] + n2[i]) \ 2
+		somaMedia <- somaMedia + media[i]
+	fimPara
+	mediaTurma <- somaMedia \ 4
+	LimparTela
+	EscrevaL(“Listagem de Alunos”)
+	EscrevaL(“----------------------------”)
+	Para i <- 1 ate 4 faca
+		EscrevaL(“Aluno: ”, nomeAluno[i]:15, “ Média: “, media[i]:4:1 )
+		Se (media[i] > mediaTurma) então
+			totalAcimaMedia <- totalAcimaMedia + 1
+		fimSe
+	fimPara
+	Escreva(“O total de alunos acima da media e: ”, totalAcimaMedia,” que a media da turma e: ”, mediaTurma:4:1)
+fimalgoritmo
+
+
+===================================================================================
+
+algoritmo”somenteNomeComInicialC”
+var
+	totalComC, i :Inteiro
+	iniciaComC: vetor[1..10] de Caractere
+	nome: Caractere
+inicio
+totalComC <- 0
+	Para i <- 1 ate 10 faca
+	Escreva(“Digite o nome:”)
+	Leia(nome)
+		Se (copia(maisc(nome), 1, 1) = “C”) entao
+			totalComC <- totalComC + 1
+			iniciaComC[totalComC] <- nome
+		fimSe
+	fimPara
+
+LimparTela
+	EscrevaL(“Listagem de nomes com inicial C: ”)
+	Para i <- 1 ate totalComC faca
+		Escreva(inicialComC[i])
+	fimPara
+fimalgoritmo
+
+
+=============================================================
+
+
+Algoritmo "ordenacaoVetores"
+var
+	vet: vetor[1..4] de inteiro
+	i, j, aux : inteiro
+inicio
+	Para i <- 1 ate 4 faca
+		Escreval("Digite um valor")
+		Leia(vet[i])
+	fimPara
+	Para i <- 1 ate 3 faca
+		Para j <- i+1 ate 4 faca
+			Se (vet[i] > vet[j]) entao
+				aux <- vet[i]
+				vet[i] <- vet[j]
+				vet[j] <- aux
+			fimSe
+		fimPara
+	fimPara
+	Para i <- 1 ate 4 faca
+		Escreva("{",vet[i],"}")
+	fimPara
+fimAlgoritmo
+
+============================================================
+Torneio de futebol
+
+Ler nomes 3 times, fazer combinações com estes 3 nomes.
+
+Tabela de jogo, com entre os times mas que não pode jogar time contra o mesmo time
+
+
+Algoritmo "possiveisJogosentreTresTimes"
+var
+	nomeTime: vetor[1..3] de Caractere
+	i, j, aux : inteiro
+	jogosPossiveis: vetor[1..6] de Caractere
+	jogosPoss: vetor [1..6] de Caractere
+inicio
+   aux <- 0
+   Escreval("------------------")
+   Escreval("CAMPEONATO FUTEBOL")
+   Escreval("------------------")
+	Para i <- 1 ate 3 faca
+		Escreval("Nome do ", i,"o. time")
+		Leia(nomeTime[i])
+	fimPara
+   LimpaTela
+	Para i <- 1 ate 3 faca
+      Para j <- 1 ate 3 faca
+			Se (nomeTime[i] <> nomeTime[j]) entao
+            aux <- aux +1
+            jogosPossiveis[aux] <- nomeTime[i]
+            jogosPoss[aux] <- nomeTime[j]
+			fimSe
+		fimPara
+   fimPara
+	Para i <- 1 ate 6 faca
+		Escreval((maiusc(jogosPossiveis[i])):15,"[] X []",(maiusc(jogosPoss[i])))
+	fimPara
+fimAlgoritmo
+
+===========================================================
+
+Corrigindo provas
+
+Cadastrar o gabarito de provas de 5 questões
+
+Depois cadastrar as provas de 3 alunos
+
+No final mostrar as notas e a media da turma.
+
+Algoritmo "corrigindoProvas"
+var
+	gabarito: vetor[1..5] de Caractere
+	i, j, numAcerto, numAlunos : inteiro
+	media, somaNotas: Real
+	nota: vetor[1..3] de Inteiro
+	respostaAlunos: vetor[1..5] de Caractere
+	nomeAluno: vetor [1..5] de Caractere
+inicio
+   numAlunos <- 0
+   somaNotas <- 0
+   Escreval("------------------")
+   Escreval("PASSO 1- Cadastro de gabarito:")
+   Escreval("------------------")
+	Para i <- 1 ate 5 faca
+		Escreval("Questão ", i)
+		Leia(gabarito[i])
+	fimPara
+   LimpaTela
+	Para i <- 1 ate 3 faca
+   	Escreval("------------------")
+      Escreval("Aluno ", i)
+      Escreval("------------------")
+      Escreval("Nome: ")
+      Leia(nomeAluno[i])
+      numAlunos <- numAlunos + 1
+      Para j <- 1 ate 5 faca
+           Escreval("Questão ", j)
+           Leia(respostaAlunos[j])
+           Se (gabarito[j] = respostaAlunos[j]) entao
+              numAcerto <- numAcerto + 1
+           fimSe
+		fimPara
+		nota[i] <-numAcerto * 2
+		numAcerto <- 0
+		somaNotas <- somaNotas + nota[i]
+		LimpaTela
+   fimPara
+   media <- somaNotas / numAlunos
+   
+	Para i <- 1 ate 3 faca
+		Escreval((maiusc(nomeAluno[i])):15,"", nota[i]:4:1)
+	fimPara
+	Escreval("------------------")
+	Escreval("Media da Turma: ", media:4:1)
+	
+fimAlgoritmo
+
+
+==========================================================
+Reservar espaço no cinema
+
+Mostrar a fileira
+
+E reservar as cadeiras
+
+Algoritmo "reservarEspacoNoCinema"
+
+Var
+   cadeirasB: vetor[1..10] de Caractere
+   result: vetor [1..10] de Inteiro
+   i, numCadeira: Inteiro
+   R: Caractere
+
+
+Inicio
+      Repita
+      Para i<-1 ate 10 faca
+           Se(cadeirasB[i] = "")entao
+             Escreva("[B ",i, "]")
+           senao
+           cadeirasB[i] <- "---"
+           fimSe
+      fimPara
+      Escreval("")
+      Escreval("---------------------------------------------------------------")
+      Escreva("Reservar a cadeira: B ")
+      Leia(numCadeira)
+      cadeirasB[numCadeira] <- ("---")
+      Escreva("Quer reservar outro? [S/N]")
+      Leia(R)
+      LimpaTela
+      Ate(R = "N")
+Fimalgoritmo
+
+============================================================
+
+MATRIZES - CURSO DE ALGORITMOS
+
+var
+	m: vetor[1..3, 1..2] de inteiro
+inicio
+	m[1,2] <- 4
+	m[2,2] <- 5
+	m[3,1] <- 8
+	
+	
+Variaveis compostas homogênias multidimensionais => matriz
+
+
+
+var
+	m: vetor[1..3, 1..2] de inteiro
+	l,c : inteiro
+inicio
+	Para l<-1 ate 3 faca
+		Para c<- 1 ate 2 faca
+			leia(m[l,c])
+		fimPara
+	fimPara
+	
+	
+=======================================================	
+Algoritmo "lerMatriz"
+var
+	mat: vetor[1..3, 1..2] de inteiro
+	l,c : inteiro
+inicio
+	Para l<-1 ate 3 faca
+		Para c<- 1 ate 2 faca
+		Escreva("Digite o valor da posicao:[",l,",",c,"]: ")
+			leia(mat[l,c])
+		fimPara
+	fimPara
+	
+   Para l <- 1 ate 3 faca
+        Para c <- 1 ate 2 faca
+           Escreva (mat[l,c]:5)
+        fimPara
+        Escreval()
+   fimPara
+Fimalgoritmo
+	
+=================================================================
+Algoritmo "lerMatriz"
+var
+	valores: vetor[1..3, 1..3] de inteiro
+	l,c, totPar : inteiro
+inicio
+      totPar <- 0
+	Para l<-1 ate 3 faca
+		Para c <- 1 ate 3 faca
+		Escreva("Digite o valor da posicao:[",l,",",c,"]: ")
+			Leia(valores[l,c])
+		fimPara
+	fimPara
+	
+	Escreval()
+	Escreval("MATRIZ:")
+	Escreval("----------")
+   Para l <- 1 ate 3 faca
+        Para c <- 1 ate 3 faca
+        Se(valores[l,c]% 2 = 0) entao
+           totPar <- totPar+ 1
+           Escreva ("{",valores[l,c]:2,"}")
+           senao
+           Escreva (valores[l,c]:4)
+           fimSe
+        fimPara
+        Escreval()
+   fimPara
+   Escreval("Ao todo foram digitados ", totPar," valores pares")
+Fimalgoritmo
+
+================================================================
+
+Algoritmo "matrizIdentidade"
+var
+	mID: vetor[1..3, 1..3] de inteiro
+	i,j, totPar : inteiro
+inicio
+      totPar <- 0
+	Para i <-1 ate 3 faca
+		Para j <- 1 ate 3 faca
+           Se (i = j) entao
+              mID[i,j] <- 1
+           seNao
+                mID[i,j]<- 0
+           fimSe
+		fimPara
+	fimPara
+	
+	Escreval()
+	Escreval("MATRIZ:")
+	Escreval("----------")
+   Para i <- 1 ate 3 faca
+        Para j <- 1 ate 3 faca
+            Escreva(mID[i,j])
+        fimPara
+        Escreval()
+   fimPara
+
+Fimalgoritmo
+	
+====================================================================
+
+Algoritmo "matrizIdentidade"
+var
+	mat: vetor[1..4, 1..4] de inteiro
+	i,j,somaDiagPrin,produtoSegLinha, maiorValorTerceiraColuna : inteiro
+inicio
+somaDiagPrin <- 0
+produtoSegLinha <- 1
+	Para i <-1 ate 4 faca
+		Para j <- 1 ate 4 faca
+           Escreva("Digite o valor da posicao [",i,",",j,"]:")
+           leia(mat[i,j])
+           Se (i = j) entao
+            somaDiagPrin <- somaDiagPrin + mat[i,j]
+           fimSe
+		fimPara
+	fimPara
+	
+	Escreval()
+	Escreval("MATRIZ:")
+	Escreval("----------")
+   Para i <- 1 ate 4 faca
+        Para j <- 1 ate 4 faca
+            Escreva(mat[i,j]:5)
+        fimPara
+        Escreval()
+   fimPara
+   
+   Para j <- 1 ate 4 faca
+        produtoSegLinha <-produtoSegLinha * mat[2,j]
+   fimPara
+   
+   Para i <- 1 ate 4 faca
+        Se(mat[i,3] > maiorValorTerceiraColuna) entao
+        	maiorValorTerceiraColuna <- mat[i,3]
+        fimSe
+   fimPara
+
+   
+   Escreval("A soma dos valores da diagonal principal e: ",somaDiagPrin)
+   Escreval("O produto dos valores da segunda linha e:",produtoSegLinha)
+   Escreval("O maior valor da terceira coluna e: ",maiorValorTerceiraColuna)
+Fimalgoritmo
+===========================================================================
+Algoritmo "dissecandoMatrizes"	
+
+var
+	mat: vetor[1..4, 1..4] de inteiro
+	i,j, respostaMenu: inteiro
+
+inicio
+	Para i <-1 ate 4 faca
+		Para j <- 1 ate 4 faca
+           Escreva("Digite o valor da posicao [",i,",",j,"]:")
+           leia(mat[i,j])
+		fimPara
+	fimPara
+   Escreval()
+   Repita
+   Escreval("MENU DE OPCOES:")
+   Escreval("================")
+   Escreval("[1] Mostrar a Matriz")
+   Escreval("[2] Mostrar a diagonal principal")
+   Escreval("[3] Mostrar o triangulo Superior")
+   Escreval("[4] Mostrar o triangulo inferior")
+   Escreval("[5] Sair")
+   Leia(respostaMenu)
+   LimpaTela
+   
+   Se (respostaMenu = 1) entao
+       Para i <- 1 ate 4 faca
+        Para j <- 1 ate 4 faca
+            Escreva(mat[i,j]:5)
+        fimPara
+        Escreval()
+   fimPara
+   fimSe
+   
+   Se (respostaMenu = 2) entao
+       Para i <- 1 ate 4 faca
+            Para j <- 1 ate 4 faca
+               Se (i = j) entao
+                  Escreva(mat[i,j])
+               senao
+                    Escreva("  ")
+               fimSe
+            fimPara
+            Escreval()
+       fimpara
+   fimSe
+   
+   Se (respostaMenu = 3) entao
+       Para i <- 1 ate 4 faca
+            Para j <- 1 ate 4 faca
+               Se (j > i) entao
+                  Escreva(mat[i,j])
+               senao
+                    Escreva("  ")
+               fimSe
+            fimPara
+            Escreval()
+       fimpara
+   fimSe
+   
+    Se (respostaMenu = 4) entao
+       Para i <- 1 ate 4 faca
+            Para j <- 1 ate 4 faca
+               Se (i > j) entao
+                  Escreva(mat[i,j])
+               senao
+                    Escreva("  ")
+               fimSe
+            fimPara
+            Escreval()
+       fimpara
+   fimSe
+	Ate(respostaMenu = 5)
+Fimalgoritmo
+
+===========================================================
+
+Jogo da velha
+
+
+
+
+
+==========================================================
+Lógica de programação:
+	Pode ser definida como um conjunto de técnicas para encadear pensamentos a fim de atingir determinado objetivo
+	
+Comando de seleção multipla
+
+algoritmo "escolhaCaso"
+var
+	time: caractere
+inicio
+
+Escreval("Digite o nome do time:")
+Leia(time)
+
+
+escolha time
+	caso "flamengo", "vasco", "fluminense", "botafogo"
+	Escreval("Esse time é carioca")
+	caso "santos", "palmeiras", "saopaulo"
+	Escreval("Esse time é paulista")
+	outrocaso
+	Escreval("Esse time é de outro estado")
+fimEscolha
+fimalgoritmo
+=======================================================
+
+algoritmo "escolhaCaso"
+var
+	mes: inteiro
+inicio
+
+Escreval("Digite o mes desejado:")
+Leia(mes)
+
+
+escolha mes
+	caso 1
+	Escreval("Janeiro")
+	caso 2
+	Escreval("Fevereiro")
+	outrocaso
+	Escreval("Não é janeiro nem fevereiro")
+fimEscolha
+fimalgoritmo
+
+=========================================================
+
+Algoritmo "reajusteSalarial"
+
+Var
+salario, salarioReajustado, salarioMinimo: real
+
+
+Inicio
+   Escreval("Digite o salario atual: ")
+   Leia(salario)
+   Escreval("Digite o salario minimo atual: ")
+   Leia(salarioMinimo)
+   
+   Se (salario <= salarioMinimo) entao
+      salarioReajustado <- salario * 1.25
+   Senao
+        Se (salario <= salarioMinimo * 3) entao
+        salarioReajustado <- salario * 1.50
+        Senao (salario > salarioMinimo * 3) entao
+        salarioReajustado <- salario * 1.10
+        fimSe
+   fimSe
+   
+   Escreval("Salario reajustado e: ", salarioReajustado)
+   
+
+Fimalgoritmo
+
+
+=====================================================
+
+
+
+
+
